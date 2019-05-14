@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.cyan[100],
         accentColor: Colors.deepOrange[200],
         textTheme: TextTheme(
-          headline: TextStyle(fontSize: 36.0),
+          headline: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
           body1: TextStyle(fontSize: 24.0),
         ),
       ),
