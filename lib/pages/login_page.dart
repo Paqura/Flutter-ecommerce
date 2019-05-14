@@ -1,29 +1,15 @@
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  RegisterPageState createState() => RegisterPageState();
+  LoginPageState createState() => LoginPageState();
 }
 
-class RegisterPageState extends State<RegisterPage> {
+class LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  String _username, _email, _password;
+  String _email, _password;
 
-  Widget _showFormTitle() => Text('Register', style: Theme.of(context).textTheme.headline);
-
-  Widget _showUsernameInput() => Padding(
-    padding: EdgeInsets.only(top: 20.0),
-    child: TextFormField(
-      onSaved: (value) => _username = value,
-      validator: (value) => value.length < 6 ? 'Too short' : null,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(),
-        labelText: 'UserName',
-        hintText: 'Enter username, min lenght 6',
-        icon: Icon(Icons.face),
-      ),
-    ),
-  );
+  Widget _showFormTitle() => Text('Login', style: Theme.of(context).textTheme.headline);
 
   Widget _showEmailInput() => Padding(
     padding: EdgeInsets.only(top: 20.0),
@@ -64,23 +50,23 @@ class RegisterPageState extends State<RegisterPage> {
         ),
         elevation: 8.0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(2.0))),
-        color: Theme.of(context).primaryColor,
+        color: Theme.of(context).accentColor,
         onPressed: () => _submit(),
       ),
       FlatButton(
-        child: Text('Existing user? Login'),
-        onPressed: () => Navigator.pushReplacementNamed(context, '/login'),
+        child: Text('New user? Register'),
+        onPressed: () => Navigator.pushReplacementNamed(context, '/register'),
       ),
     ])
   );
 
   void _saveFormState() {
     _formKey.currentState.save();
-    print('Username: $_username, Email: $_email, Password: $_password');
+    print('Email: $_email, Password: $_password');
   }
 
   void _submit() {
-    _formKey.currentState.validate() ? _saveFormState() : print('invalid form');
+    _formKey.currentState.validate() ? _saveFormState() : print('invalid data');
   }
 
   @override
@@ -98,7 +84,6 @@ class RegisterPageState extends State<RegisterPage> {
               child: Column(
                 children: [
                   _showFormTitle(),
-                  _showUsernameInput(),
                   _showEmailInput(),
                   _showPasswordInput(),
                   _showFormActions(),
