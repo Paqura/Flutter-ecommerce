@@ -1,0 +1,20 @@
+{
+  "defaultConnection": "default",
+  "connections": {
+    "default": {
+      "connector": "strapi-hook-mongoose",
+      "settings": {
+        "client": "mongo",
+        "host": "@flutter-db-kl1fl.mongodb.net",
+        "port": 27017,
+        "database": "server",
+        "username": "paqura616",
+        "password": "paqura616",
+        "srv": true
+      },
+      "options": {
+        "ssl": true
+      }
+    }
+  }
+}

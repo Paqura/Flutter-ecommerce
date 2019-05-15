@@ -7,6 +7,8 @@ class RegisterPage extends StatefulWidget {
 
 class RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
+
+  bool _hasObscureText = true;
   String _username, _email, _password;
 
   Widget _showFormTitle() => Text('Register', style: Theme.of(context).textTheme.headline);
@@ -46,6 +48,10 @@ class RegisterPageState extends State<RegisterPage> {
       validator: (value) => value.length < 6 ? 'Too short' : null,
       obscureText: true,
       decoration: InputDecoration(
+        suffixIcon: GestureDetector(
+          child: Icon(_hasObscureText ? Icons.visibility : Icons.visibility_off),
+          onTap: () => setState(() => _hasObscureText = !_hasObscureText),
+        ),
         border: OutlineInputBorder(),
         labelText: 'Password',
         hintText: 'Enter password',
