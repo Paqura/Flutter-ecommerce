@@ -5,10 +5,10 @@
       "connector": "strapi-hook-mongoose",
       "settings": {
         "client": "mongo",
-        "host": "@flutter-db-kl1fl.mongodb.net",
+        "host": "flutter-mvdwx.mongodb.net",
         "port": 27017,
         "database": "server",
-        "username": "paqura616",
+        "username": "slavals",
         "password": "paqura616",
         "srv": true
       },

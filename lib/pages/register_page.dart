@@ -15,9 +15,11 @@ class RegisterPageState extends State<RegisterPage> {
 
   Widget _showUsernameInput() => Padding(
     padding: EdgeInsets.only(top: 20.0),
+
     child: TextFormField(
       onSaved: (value) => _username = value,
       validator: (value) => value.length < 6 ? 'Too short' : null,
+
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         labelText: 'UserName',
@@ -29,9 +31,11 @@ class RegisterPageState extends State<RegisterPage> {
 
   Widget _showEmailInput() => Padding(
     padding: EdgeInsets.only(top: 20.0),
+
     child: TextFormField(
       onSaved: (value) => _email = value,
       validator: (value) => !value.contains('@') ? 'Invalid email' : null,
+
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         labelText: 'Email',
@@ -47,11 +51,13 @@ class RegisterPageState extends State<RegisterPage> {
       onSaved: (value) => _password = value,
       validator: (value) => value.length < 6 ? 'Too short' : null,
       obscureText: true,
+
       decoration: InputDecoration(
         suffixIcon: GestureDetector(
           child: Icon(_hasObscureText ? Icons.visibility : Icons.visibility_off),
           onTap: () => setState(() => _hasObscureText = !_hasObscureText),
         ),
+
         border: OutlineInputBorder(),
         labelText: 'Password',
         hintText: 'Enter password',
@@ -62,17 +68,20 @@ class RegisterPageState extends State<RegisterPage> {
 
   Widget _showFormActions() =>  Padding(
     padding: EdgeInsets.only(top: 36.0),
+
     child: Column(children: [
       RaisedButton(
         child: Text(
           'Submit',
           style: Theme.of(context).textTheme.body1.copyWith(color: Colors.black, fontSize: 18.0),
         ),
+
         elevation: 8.0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(2.0))),
         color: Theme.of(context).primaryColor,
         onPressed: () => _submit(),
       ),
+
       FlatButton(
         child: Text('Existing user? Login'),
         onPressed: () => Navigator.pushReplacementNamed(context, '/login'),
@@ -95,12 +104,15 @@ class RegisterPageState extends State<RegisterPage> {
       appBar: AppBar(
         title: Text('Register'),
       ),
+
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.0),
+
         child: Center(
           child: SingleChildScrollView(
             child: Form(
               key: _formKey,
+
               child: Column(
                 children: [
                   _showFormTitle(),

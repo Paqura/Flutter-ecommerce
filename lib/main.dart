@@ -9,19 +9,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter E-commerce',
+
       routes: {
         '/login': (BuildContext context) => LoginPage(),
         '/register': (BuildContext context) => RegisterPage(),
       },
+
       theme: ThemeData(
+        accentColor: Colors.deepOrange[200],
         brightness: Brightness.dark,
         primaryColor: Colors.cyan[100],
-        accentColor: Colors.deepOrange[200],
+
         textTheme: TextTheme(
           headline: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
           body1: TextStyle(fontSize: 24.0),
         ),
       ),
+
       home: RegisterPage(),
     );
   }
